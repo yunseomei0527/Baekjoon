@@ -2,16 +2,16 @@ import sys
 
 input = sys.stdin.readline
 N = int(input())
+x = len(str(N))
+start = max(0, N - x * 9)
 answer = 0
 
-for i in range(0, N):
-    box = list(str(i))
-    box = list(map(int, box))
-    boxSum = i + sum(box)
+for i in range(start, N + 1):
+    iList = list(map(int, list(str(i))))
+    sumList = i + sum(iList)
     
-    if boxSum == N:
+    if sumList == N:
         answer = i
         break
-    
 
 print(answer)
